@@ -1,38 +1,44 @@
 import Persona from "../models/persona";
-import personas from "../data/personas";
 
-const create = async (persona: Persona): Promise<Persona> => {
-  personas.push({ ...persona, id: (+new Date()).toString() });
 
-  return persona;
+
+
+
+const create = async (persona: Persona) => {
+  fetch(`http://localhost:3000/personas`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(persona),
+  })
 };
 
 const list = async (): Promise<Persona[]> => {
-  return personas;
+  return fetch("http://localhost:3000/personas")
+  .then(response => response.json())
 };
 
-const fetch = async (id: string): Promise<Persona> => {
-  return personas.find((p: Persona) => p.id === id);
+const getOnePerson = async (id: string) => {
+  return fetch(`http://localhost:3000/personas/${id}`);
 };
 
-const update = async (id: string, persona: Persona): Promise<Persona> => {
-  const index = personas.findIndex((p: Persona) => p.id === id);
-
-  personas[index] = persona;
-
-  return persona;
+const update = async (id: string, persona: Persona) => {
+  fetch(`http://localhost:3000/personas/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(persona),
+  })
 };
 
 const remove = async (id: string) => {
-  const index = personas.findIndex((p: Persona) => p.id === id);
-
-  personas.splice(index, 1);
+  fetch(`http://localhost:3000/personas/${id}`, {
+    method: 'DELETE',
+  })
 };
 
 export default {
   create,
   list,
-  fetch,
+  getOnePerson,
   update,
   remove,
 };

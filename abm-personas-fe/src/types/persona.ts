@@ -11,7 +11,7 @@ export default class Persona extends Base{
     firstName: string= "",
     lastName: string= "",
   ){
-    super(id, "http://localhost:3000/api/personas");
+    super(id, "http://localhost:3000/personas");
     this.email= email;
     this.firstName = firstName;
     this.lastName = lastName;

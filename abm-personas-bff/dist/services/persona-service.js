@@ -8,34 +8,37 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const personas_1 = __importDefault(require("../data/personas"));
 const create = (persona) => __awaiter(void 0, void 0, void 0, function* () {
-    personas_1.default.push(Object.assign(Object.assign({}, persona), { id: (+new Date()).toString() }));
-    return persona;
+    fetch(`http://localhost:3000/personas`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(persona),
+    });
 });
 const list = () => __awaiter(void 0, void 0, void 0, function* () {
-    return personas_1.default;
+    return fetch("http://localhost:3000/personas")
+        .then(response => response.json());
 });
-const fetch = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    return personas_1.default.find((p) => p.id === id);
+const getOnePerson = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    return fetch(`http://localhost:3000/personas/${id}`);
 });
 const update = (id, persona) => __awaiter(void 0, void 0, void 0, function* () {
-    const index = personas_1.default.findIndex((p) => p.id === id);
-    personas_1.default[index] = persona;
-    return persona;
+    fetch(`http://localhost:3000/personas/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(persona),
+    });
 });
 const remove = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const index = personas_1.default.findIndex((p) => p.id === id);
-    personas_1.default.splice(index, 1);
+    fetch(`http://localhost:3000/personas/${id}`, {
+        method: 'DELETE',
+    });
 });
 exports.default = {
     create,
     list,
-    fetch,
+    getOnePerson,
     update,
     remove,
 };

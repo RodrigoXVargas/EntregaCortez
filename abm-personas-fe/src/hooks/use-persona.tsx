@@ -1,6 +1,5 @@
 import * as React from 'react';
-
-import DataLayer from '../lib/data-layer';
+import DataLayerGeneric from '../lib/data-layerGeneric';
 import Persona from '../types/persona';
 
 interface PersonasState {
@@ -21,7 +20,7 @@ export default function usePersona(id: string) {
           // Show spinner before fetching
           setPersonaState({ loading: true, error: null, persona: { email: '', firstName: '', lastName: '' } });
           // Fetch persona from our bff endpoint
-          const persona = await DataLayer.fetch.persona(id);
+          const persona = await DataLayerGeneric.fetch.entidad(id, new Persona());
           setPersonaState({ loading: false, error: null, persona });
         }
       } catch (error: any) {

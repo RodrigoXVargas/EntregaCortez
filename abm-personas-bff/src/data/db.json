@@ -1,0 +1,23 @@
+{
+  "personas": [
+    {
+      "email": "cortezalberto@gmail.com",
+      "firstName": "Alberto",
+      "id": 1,
+      "lastName": "Cortez"
+    },
+    {
+      "email": "agustinscassani@gmail.com",
+      "firstName": "Agustin",
+      "id": 2,
+      "lastName": "Cassani"
+    },
+    {
+      "id": 3,
+      "url": "http://localhost:3000/personas",
+      "email": "rodrigo@gmail.com",
+      "firstName": "rodrigo",
+      "lastName": "vargas"
+    }
+  ]
+}

@@ -26,7 +26,7 @@ const create = (request, response, next) => __awaiter(void 0, void 0, void 0, fu
 const fetch = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = request.params;
-        const persona = yield persona_service_1.default.fetch(id);
+        const persona = yield persona_service_1.default.getOnePerson(id);
         return response.status(200).send(persona);
     }
     catch (error) {

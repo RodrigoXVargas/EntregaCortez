@@ -37,10 +37,10 @@ async function fnDeleteEntidad<T extends Base>(entidad: T ) {
   }
 };
 
-async function fnFetchEntidad<T extends Base>(entidad: T ) {
+async function fnFetchEntidad<T extends Base>(id: string, entidad: T ) {
   try {
     // Fetch given persona
-    const response = await fetch(`${entidad.url}/${entidad.id}`);
+    const response = await fetch(`${entidad.url}/${id}`);
     const persona = await response.json();
     // Return persona
     return persona;

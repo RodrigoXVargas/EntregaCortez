@@ -18,7 +18,7 @@ const fetch = async (request: Request, response: Response, next: NextFunction) =
   try {
     const { id } = request.params;
 
-    const persona = await personaService.fetch(id as string);
+    const persona = await personaService.getOnePerson(id as string);
 
     return response.status(200).send(persona);
   } catch (error) {

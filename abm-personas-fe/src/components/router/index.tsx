@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import * as React from 'react';
 
-const Home = React.lazy(() => import('../../pages/home'));
-const Persona = React.lazy(() => import('../../pages/persona'));
-const Personas = React.lazy(() => import('../../pages/personas'));
+const Home = React.lazy(() => import('../../pages/home/Home'));
+const Persona = React.lazy(() => import('../../pages/persona/Persona'));
+const Personas = React.lazy(() => import('../../pages/personas/Personas'));
 
 const Router: React.FC = () => {
   // Utils

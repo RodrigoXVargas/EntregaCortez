@@ -2,10 +2,10 @@ import Button from 'react-bootstrap/Button';
 import * as React from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 
-import usePersonas from '../../hooks/use-personas';
+import usePersonas from '../../hooks/usePersonas';
 
-const ErrorAlert = React.lazy(() => import('../../components/error-alert'));
-const PersonasTable = React.lazy(() => import('../../components/personas-table'));
+const ErrorAlert = React.lazy(() => import('../../components/error-alert/errorAlert'));
+const PersonasTable = React.lazy(() => import('../../components/personas-table/personasTable'));
 
 const Personas: React.FC = () => {
   // Utils

@@ -1,12 +1,9 @@
 export default class Base {
-    id?: string;
-    url?: string;
+    id: number;
 
     constructor (
-        id: string = "",
-        url: string = ""
+        id: number = 0,
     ){
         this.id = id;
-        this.url = url;
     }
 }

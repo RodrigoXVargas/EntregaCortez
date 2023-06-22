@@ -6,12 +6,12 @@ export default class Persona extends Base{
   lastName: string;
 
   constructor (
-    id: string = "",
+    id: number = 0,
     email: string = "",
     firstName: string= "",
     lastName: string= "",
   ){
-    super(id, "http://localhost:3000/personas");
+    super(id);
     this.email= email;
     this.firstName = firstName;
     this.lastName = lastName;

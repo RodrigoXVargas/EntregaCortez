@@ -20,8 +20,7 @@ export default function usePersonas() {
         // Show spinner before fetching
         setPersonasState({ loading: true, error: null, personas: [] });
         // Fetch personas from our bff endpoint
-        let newPerson = new Persona();
-        const personas = await DataLayerGeneric.fetch.entidades(newPerson);
+        const personas = await DataLayerGeneric.fetch.entidades();
         setPersonasState({ loading: false, error: null, personas });
       } catch (error: any) {
         setPersonasState({ loading: false, error, personas: [] });

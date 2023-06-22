@@ -15,6 +15,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Persona extends Base {
 
+
+
+
     @Column(name="email")
     private String email;
 

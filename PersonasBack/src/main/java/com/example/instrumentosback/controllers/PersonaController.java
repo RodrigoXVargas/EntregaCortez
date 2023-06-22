@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "/api/instrumentos")
+@RequestMapping(path = "/api/personas")
 public class PersonaController extends BaseControllerImpl<Persona, ServicePersonaImpl> {
 
 }

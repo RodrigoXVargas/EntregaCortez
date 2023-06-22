@@ -23,15 +23,18 @@ const PersonasTable: React.FC<PersonasTableProps> = ({ personas }) => {
   const onDeleteModalCancel = React.useCallback(() => {
     setSelectedPerson(null);
   }, [setSelectedPerson]);
+
   const onDeleteModalOk = React.useCallback(async () => {
     
-    if(selectedPerson!== null){
-      await DataLayerGeneric.delete.entidad(selectedPerson);
+    if(selectedPerson!== null && selectedPerson.id!== undefined){
+      await DataLayerGeneric.delete.entidad(selectedPerson.id);
       
       setFilteredData((preValue: Persona[]) => preValue.filter((pv: Persona) => pv.id !== selectedPerson?.id));
       setSelectedPerson(null);
     }
   }, [selectedPerson, setSelectedPerson]);
+
+  
 
   // Render
   return (
@@ -39,6 +42,7 @@ const PersonasTable: React.FC<PersonasTableProps> = ({ personas }) => {
       <Table bordered hover>
         <thead>
           <tr>
+            <th>Id</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Email</th>
@@ -47,8 +51,9 @@ const PersonasTable: React.FC<PersonasTableProps> = ({ personas }) => {
         </thead>
         <tbody>
           {
-            filteredData.map((p: Persona) => (
-              <tr key={p.id} style={{ verticalAlign: 'middle' }}>
+            filteredData.map((p: Persona, i:number) => (
+              <tr key={i} style={{ verticalAlign: 'middle' }}>
+                <td>{p.id}</td>
                 <td>{p.firstName}</td>
                 <td>{p.lastName}</td>
                 <td>{p.email}</td>

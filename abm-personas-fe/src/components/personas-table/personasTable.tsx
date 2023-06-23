@@ -3,7 +3,7 @@ import * as React from 'react';
 import Table from 'react-bootstrap/Table';
 
 import DataLayerGeneric from '../../lib/data-layerGeneric';
-import Persona from '../../types/Persona';
+import Persona from '../../types/persona';
 
 const DeleteModal = React.lazy(() => import('../delete-modal/deleteModal'));
 

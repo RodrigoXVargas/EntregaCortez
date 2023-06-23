@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-import DeleteModal from '.';
+import DeleteModal from './deleteModal';
 
 describe('DeleteModal', () => {
   test('should render', () => {

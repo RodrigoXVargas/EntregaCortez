@@ -3,9 +3,9 @@ import * as React from 'react';
 import Table from 'react-bootstrap/Table';
 
 import DataLayerGeneric from '../../lib/data-layerGeneric';
-import Persona from '../../types/persona';
+import Persona from '../../types/Persona';
 
-const DeleteModal = React.lazy(() => import('../../components/delete-modal'));
+const DeleteModal = React.lazy(() => import('../delete-modal/deleteModal'));
 
 interface PersonasTableProps {
   personas: Persona[];
